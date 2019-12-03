@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="IIB_BPM_Integration" targetNamespace="http://IIB_BPM_Integration" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://IIB_BPM_Integration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="IIB_BPM_IntegrationHttpBinding" originalBindingStyle="document"/>
+        <generatedXSD location="IIB_BPM_Integration_InlineSchema1.xsd"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  
+  
+  <wsdl:types>
+    
+        <xsd:schema targetNamespace="http://IIB_BPM_Integration" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+      <xsd:include schemaLocation="IIB_BPM_Integration_InlineSchema1.xsd"/>
+    </xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="LengthFinderRequestMsg">
+    <wsdl:part element="tns:LengthFinder" name="LengthFinderParameters"/>
+  </wsdl:message>
+  <wsdl:message name="LengthFinderResponseMsg">
+    <wsdl:part element="tns:LengthFinderResponse" name="LengthFinderResult"/>
+  </wsdl:message>
+    <wsdl:message name="GetNameRequestMsg">
+    <wsdl:part element="tns:GetName" name="GetNameParameters"/>
+  </wsdl:message>
+    <wsdl:message name="GetNameResponseMsg">
+    <wsdl:part element="tns:GetNameResponse" name="GetNameResult"/>
+  </wsdl:message>
+    <wsdl:portType name="IIB_BPM_Integration">
+    <wsdl:operation name="LengthFinder">
+            <wsdl:input message="tns:LengthFinderRequestMsg" name="LengthFinderRequest"/>
+            <wsdl:output message="tns:LengthFinderResponseMsg" name="LengthFinderResponse"/>
+    </wsdl:operation>
+        <wsdl:operation name="GetName">
+      <wsdl:input message="tns:GetNameRequestMsg" name="GetNameRequest"/>
+      <wsdl:output message="tns:GetNameResponseMsg" name="GetNameResponse"/>
+    </wsdl:operation>
+    </wsdl:portType>
+  <wsdl:binding name="IIB_BPM_IntegrationHttpBinding" type="tns:IIB_BPM_Integration">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="LengthFinder">
+            <soap:operation soapAction="http://IIB_BPM_Integration/LengthFinder"/>
+            <wsdl:input name="LengthFinderRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+      <wsdl:output name="LengthFinderResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+    </wsdl:operation>
+        <wsdl:operation name="GetName">
+      <soap:operation soapAction="http://IIB_BPM_Integration/GetName"/>
+      <wsdl:input name="GetNameRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    </wsdl:binding>
+  <wsdl:service name="IIB_BPM_IntegrationHttpService">
+    <wsdl:port binding="tns:IIB_BPM_IntegrationHttpBinding" name="IIB_BPM_IntegrationHttpPort">
+      <soap:address location="http://localhost:7800/IIB_BPM_Integration"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

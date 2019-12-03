@@ -1,0 +1,17 @@
+
+
+Importing file: C:\Users\UpenderK\IBM\IIBT10\workspace\IIB_BPM_Integration\IIB_BPM_Integration.wsdl
+
+The WSDL import will proceed with bindings IIB_BPM_IntegrationHttpBinding.
+Creating wsdl schema document for platform:/resource/IIB_BPM_Integration/IIB_BPM_Integration.wsdl.
+Parsing wsdl binding {http://IIB_BPM_Integration}IIB_BPM_IntegrationHttpBinding.
+Parsing wsdl binding input LengthFinder.
+Parsing wsdl binding output LengthFinder.
+Parsing wsdl binding input GetName.
+Parsing wsdl binding output GetName.
+Processing doc style for operation LengthFinder.
+Processing doc style for operation GetName.
+Populating WSDL schema IIB_BPM_Integration.xsd.
+Creating file IIB_BPM_Integration.xsd in the workspace.
+Creating file IIB_BPM_Integration_InlineSchema1.xsd in the workspace.
+Copying source WSDL IIB_BPM_Integration.wsdl to IIB_BPM_Integration.wsdl.
