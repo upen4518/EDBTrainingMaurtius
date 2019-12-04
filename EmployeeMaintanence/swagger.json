@@ -1,0 +1,83 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "EmployeeMaintanence",
+    "version" : "1.0.0",
+    "description" : "EmployeeMaintanence"
+  },
+  "paths" : {
+    "/insertEmployee" : {
+      "post" : {
+        "operationId" : "postInsertEmployee",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/insertEmployeeModelRes"
+            }
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "Insert a insertEmployee",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/insertEmployeeModelReq"
+          },
+          "description" : "Request Data",
+          "required" : true
+        } ]
+      }
+    }
+  },
+  "basePath" : "/employeemaintanence/v1",
+  "definitions" : {
+    "insertEmployeeModelReq" : {
+      "type" : "object",
+      "properties" : {
+        "EID" : {
+          "type" : "string"
+        },
+        "EName" : {
+          "type" : "string"
+        },
+        "Gender" : {
+          "type" : "string"
+        },
+        "Age" : {
+          "type" : "string"
+        },
+        "Designation" : {
+          "type" : "string"
+        },
+        "Passport" : {
+          "type" : "string"
+        },
+        "Address" : {
+          "type" : [ "string", "null" ]
+        }
+      },
+      "required" : [ "EID", "EName", "Passport", "Designation", "Gender", "Age" ]
+    },
+    "insertEmployeeModelRes" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "InsertReferenceNo" : {
+            "type" : [ "string", "null" ]
+          },
+          "StatusCode" : {
+            "type" : [ "string", "null" ]
+          },
+          "StatusDesc" : {
+            "type" : [ "string", "null" ]
+          }
+        },
+        "required" : [ "InsertReferenceNo", "StatusCode", "StatusDesc" ]
+      }
+    }
+  }
+}
